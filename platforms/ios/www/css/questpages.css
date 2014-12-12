@@ -532,8 +532,13 @@ li{
 }	
 	
 .congrats {
-    text-align: center;
-	background-color:#DAA520;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:10px auto;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #4F8A10;
+    background-color: #DFF2BF;
     z-index: 6;
 }
 
@@ -551,14 +556,13 @@ li{
 	font-weight:bold;
 	font-size:1rem;
 	text-align:center;
-	color:#FFFFFF;
+	color:#000000;
 	margin:0 auto;
 	margin-top:1rem;
 	padding-top:0.5rem;
 	padding-bottom:0.5rem;
-	width:80%;
-    border:1px solid #FFFFFF;
-/*	background:#FFFFFF;*/
+	width:60%;
+    background-color:#FFFFFF;
 }
 #myQuestPage .notification{
     text-align: center;

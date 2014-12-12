@@ -5,7 +5,7 @@ var lite = {
 
         //app start once deviceready occurs
         console.info("deviceready");
-        db = openDatabase('questTestDatabaseV3', '', 'Sample DB', 800 * 800);
+        db = openDatabase('questTestDatabaseV4', '', 'Sample DB', 800 * 800);
         if (db.version == '') {
             console.info('First time running... create tables');
             //means first time creation of DB
@@ -81,7 +81,7 @@ var lite = {
                             $('#mapcontainer').remove();
                         
                             var pages = sequence + 1
-                            $('<div class="information">your No.' + pages + ' location</div>').insertBefore($('#locationContainer #getGps'))
+                            $('<div class="information">Enter Location ' + pages + ' location</div>').insertBefore($('#locationContainer #getGps'))
                             /****************add transition class again to fake page change******good choice************/
 
                         },
@@ -365,8 +365,9 @@ var lite = {
                         for(var i=0;i<result;i++){
                             var quest_id=rs.rows.item(i).quest_id;
                             if($('.questsList')){
-                            $('.questsList > li[data-questId="'+quest_id+'"]').css('background-color','#008000')
+                            $('.questsList > li[data-questId="'+quest_id+'"]').css('background-color','#329932')
                             $('.questsList > li[data-questId="'+quest_id+'"]').css('color','#FFFFFF')
+                            $('.questsList > li[data-questId="'+quest_id+'"]').css('border', '1px solid #FFFDF1')
                             console.log($('.questsList > li[data-questId="'+quest_id+'"]'))
                             }
                         }

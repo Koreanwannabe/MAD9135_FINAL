@@ -6,6 +6,7 @@ var app = {
     initialize: function () {
         this.bindEvents();
 
+
     },
     // Bind Event Listeners
     //
@@ -29,9 +30,28 @@ var app = {
         $('#locationSubmit').bind("click", app.submitLocations);
         $('#nextLocation').bind('click', joinQuest.nextGame);
         $(".joinBack").bind("click", app.welcomepages);
-       
-        
+
+
         document.addEventListener("offline", app.networkfail, false);
+
+
+
+
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function () {
+        app.receivedEvent('deviceready');
+
+        lite.checkliteDB();
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function (id) {
+
+        console.log('Received Event: ' + id);
+
 
         var networkState = navigator.connection.type;
         var states = {};
@@ -57,22 +77,6 @@ var app = {
 
 
         }
-        lite.checkliteDB();
-
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function () {
-        app.receivedEvent('deviceready');
-
-
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function (id) {
-
-        console.log('Received Event: ' + id);
 
     },
 
@@ -334,7 +338,7 @@ var app = {
         console.log("saveLocationstoDatabase");
         var literesult = rs.rows;
         var uri = "http://m.edumedia.ca/wu000155/geo/create-locations.php";
- 
+
         console.log(literesult.length);
         if (literesult.length > 0) {
             for (var i = 0; i < literesult.length; i++) {
@@ -363,7 +367,7 @@ var app = {
                     if (request.readyState === 4 || request.readyState == "complete") {
                         if (request.status === 200 || request.status === 0) {
                             var result = request.responseText;
-                           
+
                             console.log(JSON.parse(result).values.length);
                             console.log(literesult.length);
 
